@@ -2,6 +2,17 @@
 
 jotform-api-client
 
+## How to use
+
+Refer to [Jotform API](https://api.jotform.com/docs/) for request and response
+
+```ruby
+require 'jotform_api_client'
+
+api_key = <your-jotform-api-key>
+jotform_api_client = JotFormApiClient.new(api_key)
+```
+
 ## Requirement
 
 - install ruby (v2.7)
