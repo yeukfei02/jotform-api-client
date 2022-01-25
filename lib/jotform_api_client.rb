@@ -99,6 +99,15 @@ class JotFormApiClient
     response_body
   end
 
+  def get_form_by_id(id = '')
+    response = submit_get_request("/form/#{id}")
+
+    response_body = {}
+    response_body = response.body if response.status == 200
+
+    response_body
+  end
+
   private
 
   def request_base
