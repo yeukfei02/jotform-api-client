@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
 require 'faraday'
+require_relative './base_class'
 
 # JotFormApiClient
-class JotFormApiClient
+class JotFormApiClient < BaseClass
   def initialize(api_key = '')
     @api_key = api_key
     @root_url = 'https://api.jotform.com'
@@ -126,42 +127,48 @@ class JotFormApiClient
     response_body
   end
 
-  private
+  def get_form_properties(form_id = '')
+    response = submit_get_request("/form/#{form_id}/properties")
 
-  def request_base
-    Faraday.new(
-      url: @root_url,
-      headers: { 'Content-Type': 'application/json' }
-    )
+    response_body = {}
+    response_body = response.body if response.status == 200
+
+    response_body
   end
 
-  def submit_get_request(url, params = {})
-    conn = request_base
+  def get_form_property(form_id = '', property_key = '')
+    response = submit_get_request("/form/#{form_id}/properties/#{property_key}")
 
-    if !params.nil? && !params.empty?
-      conn.get(url) do |req|
-        req.params['apiKey'] = @api_key
-        req.params = req.params.merge(params)
-      end
-    else
-      conn.get(url) do |req|
-        req.params['apiKey'] = @api_key
-      end
-    end
+    response_body = {}
+    response_body = response.body if response.status == 200
+
+    response_body
   end
 
-  def submit_post_request(url, params = {})
-    conn = request_base
+  def get_form_submissions(form_id = '', params = {})
+    response = submit_get_request("/form/#{form_id}/submissions", params)
 
-    if !params.nil? && !params.empty?
-      conn.post(url) do |req|
-        req.body = { apiKey: @api_key }
-        req.body = req.body.merge(params).to_json
-      end
-    else
-      conn.post(url) do |req|
-        req.body = { apiKey: @api_key }.to_json
-      end
-    end
+    response_body = {}
+    response_body = response.body if response.status == 200
+
+    response_body
+  end
+
+  def get_form_files(form_id = '')
+    response = submit_get_request("/form/#{form_id}/files")
+
+    response_body = {}
+    response_body = response.body if response.status == 200
+
+    response_body
+  end
+
+  def get_form_webhooks(form_id = '')
+    response = submit_get_request("/form/#{form_id}/webhooks")
+
+    response_body = {}
+    response_body = response.body if response.status == 200
+
+    response_body
   end
 end

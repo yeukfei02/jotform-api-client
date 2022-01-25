@@ -2,12 +2,12 @@
 
 Gem::Specification.new do |s|
   s.name = 'jotform_api_client'
-  s.version     = '0.1.3'
+  s.version     = '0.1.5'
   s.summary     = 'jotform_api_client is a ruby client for the JotForm API'
   s.description = 'jotform_api_client is a ruby client for the JotForm API'
   s.authors     = ['Donald Wu']
   s.email       = 'yeukfei02@gmail.com'
-  s.files       = ['lib/jotform_api_client.rb']
+  s.files       = ['lib/jotform_api_client.rb', 'lib/base_class.rb']
   s.homepage    =
     'https://rubygems.org/gems/jotform_api_client'
   s.metadata = {
