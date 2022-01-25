@@ -83,6 +83,24 @@ id = ''
 get_form_by_id = jotform_api_client.get_form_by_id(id)
 ```
 
+## get form questions
+
+```ruby
+# your form id
+id = ''
+get_form_questions = jotform_api_client.get_form_questions(id)
+```
+
+## get form question
+
+```ruby
+# your form id
+form_id = ''
+# your question id
+question_id = ''
+get_form_questions = jotform_api_client.get_form_question(form_id, question_id)
+```
+
 ## Requirement
 
 - install ruby (v2.7)

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    jotform_api_client (0.1.2)
+    jotform_api_client (0.1.3)
       faraday (~> 2.1)
 
 GEM
