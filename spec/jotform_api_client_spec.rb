@@ -24,8 +24,26 @@ describe 'JotFormApiClient' do
       message = response_json['message']
       expect(message).to eq('success')
 
-      content = response_json['content']['username']
-      expect(content).to eq('yeukfei02')
+      content = response_json['content']
+      expect(!content.nil? && !content.empty?).to be_truthy
+    end
+  end
+
+  context 'user usage test' do
+    it 'returns success' do
+      response = jotform_api_client.user_usage
+
+      response_json = JSON.parse(response)
+      puts "response_json = #{response_json}"
+
+      response_code = response_json['responseCode']
+      expect(response_code).to eq(200)
+
+      message = response_json['message']
+      expect(message).to eq('success')
+
+      content = response_json['content']
+      expect(!content.nil? && !content.empty?).to be_truthy
     end
   end
 end
