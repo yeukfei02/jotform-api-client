@@ -17,9 +17,6 @@ class JotFormApiClient
       req.params['apiKey'] = @api_key
     end
 
-    puts "response.status = #{response.status}"
-    puts "response.body = #{response.body}"
-
     response_body = {}
     response_body = response.body if response.status == 200
 

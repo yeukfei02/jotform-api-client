@@ -13,6 +13,13 @@ api_key = <your-jotform-api-key>
 jotform_api_client = JotFormApiClient.new(api_key)
 ```
 
+## get user
+
+```ruby
+jotform_api_client = JotFormApiClient.new(api_key)
+user = jotform_api_client.user
+```
+
 ## Requirement
 
 - install ruby (v2.7)
@@ -35,7 +42,7 @@ $ gem yank jotform_api_client -v <version>
 $ gem push jotform_api_client-<version>.gem
 
 // run test
-$ rake test
+$ bundle exec rspec
 
 // rubocop
 $ rubocop --auto-correct
