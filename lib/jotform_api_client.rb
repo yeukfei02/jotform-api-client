@@ -98,4 +98,49 @@ class JotFormApiClient
 
     response_body
   end
+
+  def user_settings
+    conn = Faraday.new(
+      url: @root_url,
+      headers: { 'Content-Type': 'application/json' }
+    )
+    response = conn.get('/user/settings') do |req|
+      req.params['apiKey'] = @api_key
+    end
+
+    response_body = {}
+    response_body = response.body if response.status == 200
+
+    response_body
+  end
+
+  def user_history
+    conn = Faraday.new(
+      url: @root_url,
+      headers: { 'Content-Type': 'application/json' }
+    )
+    response = conn.get('/user/history') do |req|
+      req.params['apiKey'] = @api_key
+    end
+
+    response_body = {}
+    response_body = response.body if response.status == 200
+
+    response_body
+  end
+
+  def user_forms
+    conn = Faraday.new(
+      url: @root_url,
+      headers: { 'Content-Type': 'application/json' }
+    )
+    response = conn.get('/user/forms') do |req|
+      req.params['apiKey'] = @api_key
+    end
+
+    response_body = {}
+    response_body = response.body if response.status == 200
+
+    response_body
+  end
 end

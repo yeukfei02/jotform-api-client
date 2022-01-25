@@ -49,6 +49,24 @@ user_folders = jotform_api_client.user_folders
 user_reports = jotform_api_client.user_reports
 ```
 
+## get user settings
+
+```ruby
+user_settings = jotform_api_client.user_settings
+```
+
+## get user history
+
+```ruby
+user_history = jotform_api_client.user_history
+```
+
+## get user forms
+
+```ruby
+user_forms = jotform_api_client.user_forms
+```
+
 ## Requirement
 
 - install ruby (v2.7)

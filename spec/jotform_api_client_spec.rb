@@ -118,4 +118,58 @@ describe 'JotFormApiClient' do
       expect(content.empty?).to be_truthy
     end
   end
+
+  context 'user settings test' do
+    it 'returns success' do
+      response = jotform_api_client.user_settings
+
+      response_json = JSON.parse(response)
+      puts "response_json = #{response_json}"
+
+      response_code = response_json['responseCode']
+      expect(response_code).to eq(200)
+
+      message = response_json['message']
+      expect(message).to eq('success')
+
+      content = response_json['content']
+      expect(!content.nil? && !content.empty?).to be_truthy
+    end
+  end
+
+  context 'user history test' do
+    it 'returns success' do
+      response = jotform_api_client.user_history
+
+      response_json = JSON.parse(response)
+      puts "response_json = #{response_json}"
+
+      response_code = response_json['responseCode']
+      expect(response_code).to eq(200)
+
+      message = response_json['message']
+      expect(message).to eq('success')
+
+      content = response_json['content']
+      expect(!content.nil? && !content.empty?).to be_truthy
+    end
+  end
+
+  context 'user forms test' do
+    it 'returns success' do
+      response = jotform_api_client.user_forms
+
+      response_json = JSON.parse(response)
+      puts "response_json = #{response_json}"
+
+      response_code = response_json['responseCode']
+      expect(response_code).to eq(200)
+
+      message = response_json['message']
+      expect(message).to eq('success')
+
+      content = response_json['content']
+      expect(!content.nil? && !content.empty?).to be_truthy
+    end
+  end
 end
