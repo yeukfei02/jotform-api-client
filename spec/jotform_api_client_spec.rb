@@ -8,15 +8,15 @@ require_relative '../lib/jotform_api_client'
 describe 'JotFormApiClient' do
   let!(:jotform_api_client) do
     api_key = ENV['JOTFORM_API_KEY']
+
+    puts "api_key = #{api_key}"
+
     JotFormApiClient.new(api_key)
   end
 
   context 'user test' do
     it 'returns success' do
       response = jotform_api_client.user
-
-      puts "response = #{response}"
-      puts "response.class = #{response.class}"
 
       response_json = JSON.parse(response)
       puts "response_json = #{response_json}"
