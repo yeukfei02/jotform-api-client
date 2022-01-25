@@ -2,6 +2,7 @@
 
 require 'faraday'
 
+# JotFormApiClient
 class JotFormApiClient
   def initialize(api_key = '')
     @api_key = api_key
