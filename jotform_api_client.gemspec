@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'faraday', '~> 2.1'
   s.add_development_dependency 'dotenv', '~> 2.7'
   s.add_development_dependency 'reek', '~> 6.1'
+  s.add_development_dependency 'rspec', '~> 3.10.0'
   s.add_development_dependency 'rubocop', '~> 1.25'
   s.add_development_dependency 'solargraph', '~> 0.44.3'
 end

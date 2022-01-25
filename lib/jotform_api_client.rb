@@ -17,8 +17,80 @@ class JotFormApiClient
       req.params['apiKey'] = @api_key
     end
 
-    puts "response.status = #{response.status}"
-    puts "response.body = #{response.body}"
+    response_body = {}
+    response_body = response.body if response.status == 200
+
+    response_body
+  end
+
+  def user_usage
+    conn = Faraday.new(
+      url: @root_url,
+      headers: { 'Content-Type': 'application/json' }
+    )
+    response = conn.get('/user/usage') do |req|
+      req.params['apiKey'] = @api_key
+    end
+
+    response_body = {}
+    response_body = response.body if response.status == 200
+
+    response_body
+  end
+
+  def user_submissions
+    conn = Faraday.new(
+      url: @root_url,
+      headers: { 'Content-Type': 'application/json' }
+    )
+    response = conn.get('/user/submissions') do |req|
+      req.params['apiKey'] = @api_key
+    end
+
+    response_body = {}
+    response_body = response.body if response.status == 200
+
+    response_body
+  end
+
+  def user_subusers
+    conn = Faraday.new(
+      url: @root_url,
+      headers: { 'Content-Type': 'application/json' }
+    )
+    response = conn.get('/user/subusers') do |req|
+      req.params['apiKey'] = @api_key
+    end
+
+    response_body = {}
+    response_body = response.body if response.status == 200
+
+    response_body
+  end
+
+  def user_folders
+    conn = Faraday.new(
+      url: @root_url,
+      headers: { 'Content-Type': 'application/json' }
+    )
+    response = conn.get('/user/folders') do |req|
+      req.params['apiKey'] = @api_key
+    end
+
+    response_body = {}
+    response_body = response.body if response.status == 200
+
+    response_body
+  end
+
+  def user_reports
+    conn = Faraday.new(
+      url: @root_url,
+      headers: { 'Content-Type': 'application/json' }
+    )
+    response = conn.get('/user/reports') do |req|
+      req.params['apiKey'] = @api_key
+    end
 
     response_body = {}
     response_body = response.body if response.status == 200
