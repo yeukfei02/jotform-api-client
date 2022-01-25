@@ -18,13 +18,8 @@ jobs:
         with:
           ruby-version: ${{ matrix.ruby }}
           bundler-cache: true
-      - run: bundle install
-
-      - name: Use Ruby ${{ matrix.ruby }}
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: ${{ matrix.ruby }}
-          bundler-cache: true
         env:
           JOTFORM_API_KEY: ${{ secrets.JOTFORM_API_KEY }}
-      - run: bundle exec rspec
+      - run: |
+          bundle install
+          bundle exec rspec
