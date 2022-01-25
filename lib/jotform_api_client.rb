@@ -5,11 +5,6 @@ require_relative './base_class'
 
 # JotFormApiClient
 class JotFormApiClient < BaseClass
-  def initialize(api_key = '')
-    @api_key = api_key
-    @root_url = 'https://api.jotform.com'
-  end
-
   def user
     response = submit_get_request('/user')
 

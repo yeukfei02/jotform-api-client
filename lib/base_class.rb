@@ -2,6 +2,11 @@
 
 # BaseClass
 class BaseClass
+  def initialize(api_key = '')
+    @api_key = api_key
+    @root_url = 'https://api.jotform.com'
+  end
+
   def request_base
     Faraday.new(
       url: @root_url,
