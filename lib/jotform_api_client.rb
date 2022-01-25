@@ -27,8 +27,8 @@ class JotFormApiClient
     response_body
   end
 
-  def user_submissions
-    response = submit_get_request('/user/submissions')
+  def user_submissions(params = {})
+    response = submit_get_request('/user/submissions', params)
 
     response_body = {}
     response_body = response.body if response.status == 200
@@ -72,8 +72,8 @@ class JotFormApiClient
     response_body
   end
 
-  def user_history
-    response = submit_get_request('/user/history')
+  def user_history(params = {})
+    response = submit_get_request('/user/history', params)
 
     response_body = {}
     response_body = response.body if response.status == 200
@@ -81,8 +81,8 @@ class JotFormApiClient
     response_body
   end
 
-  def user_forms
-    response = submit_get_request('/user/forms')
+  def user_forms(params = {})
+    response = submit_get_request('/user/forms', params)
 
     response_body = {}
     response_body = response.body if response.status == 200
@@ -92,13 +92,21 @@ class JotFormApiClient
 
   private
 
-  def submit_get_request(url)
+  def submit_get_request(url, params = {})
     conn = Faraday.new(
       url: @root_url,
       headers: { 'Content-Type': 'application/json' }
     )
-    conn.get(url) do |req|
-      req.params['apiKey'] = @api_key
+
+    if !params.nil? && !params.empty?
+      conn.get(url) do |req|
+        req.params['apiKey'] = @api_key
+        req.params = req.params.merge(params)
+      end
+    else
+      conn.get(url) do |req|
+        req.params['apiKey'] = @api_key
+      end
     end
   end
 end
