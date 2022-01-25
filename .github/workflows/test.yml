@@ -1,25 +1,25 @@
-name: Run test case
+# name: Run test case
 
-on: pull_request
+# on: pull_request
 
-jobs:
-  run-test-case:
-    name: run test case
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        ruby: ['2.7.4']
+# jobs:
+#   run-test-case:
+#     name: run test case
+#     runs-on: ubuntu-latest
+#     strategy:
+#       matrix:
+#         ruby: ['2.7.4']
 
-    steps:
-      - uses: actions/checkout@v2
+#     steps:
+#       - uses: actions/checkout@v2
 
-      - name: Use Ruby ${{ matrix.ruby }}
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: ${{ matrix.ruby }}
-          bundler-cache: true
-        env:
-          JOTFORM_API_KEY: ${{ secrets.JOTFORM_API_KEY }}
-      - run: |
-          bundle install
-          bundle exec rspec
+#       - name: Use Ruby ${{ matrix.ruby }}
+#         uses: ruby/setup-ruby@v1
+#         with:
+#           ruby-version: ${{ matrix.ruby }}
+#           bundler-cache: true
+#         env:
+#           JOTFORM_API_KEY: ${{ secrets.JOTFORM_API_KEY }}
+#       - run: |
+#           bundle install
+#           bundle exec rspec

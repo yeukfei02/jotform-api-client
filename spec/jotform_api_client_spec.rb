@@ -8,9 +8,6 @@ require_relative '../lib/jotform_api_client'
 describe 'JotFormApiClient' do
   let!(:jotform_api_client) do
     api_key = ENV['JOTFORM_API_KEY']
-
-    puts "api_key = #{api_key}"
-
     JotFormApiClient.new(api_key)
   end
 
