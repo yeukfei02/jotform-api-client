@@ -15,6 +15,9 @@ describe 'JotFormApiClient' do
     it 'returns success' do
       response = jotform_api_client.user
 
+      puts "response = #{response}"
+      puts "response.class = #{response.class}"
+
       response_json = JSON.parse(response)
       puts "response_json = #{response_json}"
 
