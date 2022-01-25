@@ -167,4 +167,46 @@ describe 'form test' do
   #       expect(!content.nil? && !content.empty?).to be_truthy
   #     end
   #   end
+
+  # context 'get form files test' do
+  #   before(:each) do
+  #     form_id = '30693660548966'
+  #     response = jotform_api_client.get_form_files(form_id)
+
+  #     @response_json = JSON.parse(response)
+  #     puts "@response_json = #{@response_json}"
+  #   end
+
+  #   it 'returns success' do
+  #     response_code = @response_json['responseCode']
+  #     expect(response_code).to eq(200)
+
+  #     message = @response_json['message']
+  #     expect(message).to eq('success')
+
+  #     content = @response_json['content']
+  #     expect(!content.nil? && !content.empty?).to be_truthy
+  #   end
+  # end
+
+  # context 'get form webhooks test' do
+  #     before(:each) do
+  #       form_id = '30693660548966'
+  #       response = jotform_api_client.get_form_webhooks(form_id)
+
+  #       @response_json = JSON.parse(response)
+  #       puts "@response_json = #{@response_json}"
+  #     end
+
+  #     it 'returns success' do
+  #       response_code = @response_json['responseCode']
+  #       expect(response_code).to eq(200)
+
+  #       message = @response_json['message']
+  #       expect(message).to eq('success')
+
+  #       content = @response_json['content']
+  #       expect(!content.nil? && !content.empty?).to be_truthy
+  #     end
+  #   end
 end

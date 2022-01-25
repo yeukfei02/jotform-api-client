@@ -153,6 +153,24 @@ class JotFormApiClient
     response_body
   end
 
+  def get_form_files(form_id = '')
+    response = submit_get_request("/form/#{form_id}/files")
+
+    response_body = {}
+    response_body = response.body if response.status == 200
+
+    response_body
+  end
+
+  def get_form_webhooks(form_id = '')
+    response = submit_get_request("/form/#{form_id}/webhooks")
+
+    response_body = {}
+    response_body = response.body if response.status == 200
+
+    response_body
+  end
+
   private
 
   def request_base
