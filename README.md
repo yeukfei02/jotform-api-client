@@ -34,6 +34,27 @@ jotform_api_client = JotFormApiClient.new(api_key)
 user_submissions = jotform_api_client.user_submissions
 ```
 
+## get user subusers
+
+```ruby
+jotform_api_client = JotFormApiClient.new(api_key)
+user_subusers = jotform_api_client.user_subusers
+```
+
+## get user folders
+
+```ruby
+jotform_api_client = JotFormApiClient.new(api_key)
+user_folders = jotform_api_client.user_folders
+```
+
+## get user reports
+
+```ruby
+jotform_api_client = JotFormApiClient.new(api_key)
+user_reports = jotform_api_client.user_reports
+```
+
 ## Requirement
 
 - install ruby (v2.7)

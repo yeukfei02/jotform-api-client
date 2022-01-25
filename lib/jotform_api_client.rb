@@ -52,4 +52,49 @@ class JotFormApiClient
 
     response_body
   end
+
+  def user_subusers
+    conn = Faraday.new(
+      url: @root_url,
+      headers: { 'Content-Type': 'application/json' }
+    )
+    response = conn.get('/user/subusers') do |req|
+      req.params['apiKey'] = @api_key
+    end
+
+    response_body = {}
+    response_body = response.body if response.status == 200
+
+    response_body
+  end
+
+  def user_folders
+    conn = Faraday.new(
+      url: @root_url,
+      headers: { 'Content-Type': 'application/json' }
+    )
+    response = conn.get('/user/folders') do |req|
+      req.params['apiKey'] = @api_key
+    end
+
+    response_body = {}
+    response_body = response.body if response.status == 200
+
+    response_body
+  end
+
+  def user_reports
+    conn = Faraday.new(
+      url: @root_url,
+      headers: { 'Content-Type': 'application/json' }
+    )
+    response = conn.get('/user/reports') do |req|
+      req.params['apiKey'] = @api_key
+    end
+
+    response_body = {}
+    response_body = response.body if response.status == 200
+
+    response_body
+  end
 end
