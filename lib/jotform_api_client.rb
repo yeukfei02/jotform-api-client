@@ -27,8 +27,8 @@ class JotFormApiClient
     response_body
   end
 
-  def user_submissions
-    response = submit_get_request('/user/submissions')
+  def user_submissions(params = {})
+    response = submit_get_request('/user/submissions', params)
 
     response_body = {}
     response_body = response.body if response.status == 200
@@ -72,8 +72,8 @@ class JotFormApiClient
     response_body
   end
 
-  def user_history
-    response = submit_get_request('/user/history')
+  def user_history(params = {})
+    response = submit_get_request('/user/history', params)
 
     response_body = {}
     response_body = response.body if response.status == 200
@@ -81,8 +81,26 @@ class JotFormApiClient
     response_body
   end
 
-  def user_forms
-    response = submit_get_request('/user/forms')
+  def user_forms(params = {})
+    response = submit_get_request('/user/forms', params)
+
+    response_body = {}
+    response_body = response.body if response.status == 200
+
+    response_body
+  end
+
+  def create_form(params = {})
+    response = submit_post_request('/form', params)
+
+    response_body = {}
+    response_body = response.body if response.status == 200
+
+    response_body
+  end
+
+  def get_form_by_id(id = '')
+    response = submit_get_request("/form/#{id}")
 
     response_body = {}
     response_body = response.body if response.status == 200
@@ -92,13 +110,40 @@ class JotFormApiClient
 
   private
 
-  def submit_get_request(url)
-    conn = Faraday.new(
+  def request_base
+    Faraday.new(
       url: @root_url,
       headers: { 'Content-Type': 'application/json' }
     )
-    conn.get(url) do |req|
-      req.params['apiKey'] = @api_key
+  end
+
+  def submit_get_request(url, params = {})
+    conn = request_base
+
+    if !params.nil? && !params.empty?
+      conn.get(url) do |req|
+        req.params['apiKey'] = @api_key
+        req.params = req.params.merge(params)
+      end
+    else
+      conn.get(url) do |req|
+        req.params['apiKey'] = @api_key
+      end
+    end
+  end
+
+  def submit_post_request(url, params = {})
+    conn = request_base
+
+    if !params.nil? && !params.empty?
+      conn.post(url) do |req|
+        req.body = { apiKey: @api_key }
+        req.body = req.body.merge(params).to_json
+      end
+    else
+      conn.post(url) do |req|
+        req.body = { apiKey: @api_key }.to_json
+      end
     end
   end
 end

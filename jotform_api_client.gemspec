@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name = 'jotform_api_client'
-  s.version     = '0.1.1'
+  s.version     = '0.1.2'
   s.summary     = 'jotform_api_client is a ruby client for the JotForm API'
   s.description = 'jotform_api_client is a ruby client for the JotForm API'
   s.authors     = ['Donald Wu']
@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
   s.required_ruby_version = '>= 2.7.0'
   s.add_dependency 'faraday', '~> 2.1'
   s.add_development_dependency 'dotenv', '~> 2.7'
+  s.add_development_dependency 'faker', '~> 2.19.0'
   s.add_development_dependency 'reek', '~> 6.1'
   s.add_development_dependency 'rspec', '~> 3.10.0'
   s.add_development_dependency 'rubocop', '~> 1.25'
