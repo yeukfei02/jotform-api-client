@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
   s.required_ruby_version = '>= 2.7.0'
   s.add_dependency 'faraday', '~> 2.1'
   s.add_development_dependency 'dotenv', '~> 2.7'
+  s.add_development_dependency 'faker', '~> 2.19.0'
   s.add_development_dependency 'reek', '~> 6.1'
   s.add_development_dependency 'rspec', '~> 3.10.0'
   s.add_development_dependency 'rubocop', '~> 1.25'

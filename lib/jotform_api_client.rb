@@ -90,13 +90,26 @@ class JotFormApiClient
     response_body
   end
 
+  def create_form(params = {})
+    response = submit_post_request('/form', params)
+
+    response_body = {}
+    response_body = response.body if response.status == 200
+
+    response_body
+  end
+
   private
 
-  def submit_get_request(url, params = {})
-    conn = Faraday.new(
+  def request_base
+    Faraday.new(
       url: @root_url,
       headers: { 'Content-Type': 'application/json' }
     )
+  end
+
+  def submit_get_request(url, params = {})
+    conn = request_base
 
     if !params.nil? && !params.empty?
       conn.get(url) do |req|
@@ -106,6 +119,21 @@ class JotFormApiClient
     else
       conn.get(url) do |req|
         req.params['apiKey'] = @api_key
+      end
+    end
+  end
+
+  def submit_post_request(url, params = {})
+    conn = request_base
+
+    if !params.nil? && !params.empty?
+      conn.post(url) do |req|
+        req.body = { apiKey: @api_key }
+        req.body = req.body.merge(params).to_json
+      end
+    else
+      conn.post(url) do |req|
+        req.body = { apiKey: @api_key }.to_json
       end
     end
   end

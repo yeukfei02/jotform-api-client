@@ -67,6 +67,14 @@ user_history = jotform_api_client.user_history
 user_forms = jotform_api_client.user_forms
 ```
 
+## create form
+
+```ruby
+# your params
+params = {}
+create_form = jotform_api_client.create_form(params)
+```
+
 ## Requirement
 
 - install ruby (v2.7)
