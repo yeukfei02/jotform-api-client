@@ -126,6 +126,33 @@ class JotFormApiClient
     response_body
   end
 
+  def get_form_properties(form_id = '')
+    response = submit_get_request("/form/#{form_id}/properties")
+
+    response_body = {}
+    response_body = response.body if response.status == 200
+
+    response_body
+  end
+
+  def get_form_property(form_id = '', property_key = '')
+    response = submit_get_request("/form/#{form_id}/properties/#{property_key}")
+
+    response_body = {}
+    response_body = response.body if response.status == 200
+
+    response_body
+  end
+
+  def get_form_submissions(form_id = '', params = {})
+    response = submit_get_request("/form/#{form_id}/submissions", params)
+
+    response_body = {}
+    response_body = response.body if response.status == 200
+
+    response_body
+  end
+
   private
 
   def request_base

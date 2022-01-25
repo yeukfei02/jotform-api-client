@@ -101,6 +101,34 @@ question_id = ''
 get_form_questions = jotform_api_client.get_form_question(form_id, question_id)
 ```
 
+## get form properties
+
+```ruby
+# your form id
+form_id = ''
+get_form_properties = jotform_api_client.get_form_properties(form_id)
+```
+
+## get form property
+
+```ruby
+# your form id
+form_id = ''
+# your property_key
+property_key = ''
+get_form_property = jotform_api_client.get_form_property(form_id, property_key)
+```
+
+## get form submissions
+
+```ruby
+# your form id
+form_id = ''
+# your params
+params = {}
+get_form_property = jotform_api_client.get_form_submissions(form_id, params)
+```
+
 ## Requirement
 
 - install ruby (v2.7)
