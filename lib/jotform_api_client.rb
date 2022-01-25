@@ -37,4 +37,19 @@ class JotFormApiClient
 
     response_body
   end
+
+  def user_submissions
+    conn = Faraday.new(
+      url: @root_url,
+      headers: { 'Content-Type': 'application/json' }
+    )
+    response = conn.get('/user/submissions') do |req|
+      req.params['apiKey'] = @api_key
+    end
+
+    response_body = {}
+    response_body = response.body if response.status == 200
+
+    response_body
+  end
 end
