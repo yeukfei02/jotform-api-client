@@ -129,6 +129,22 @@ params = {}
 get_form_property = jotform_api_client.get_form_submissions(form_id, params)
 ```
 
+## get submission
+
+```ruby
+# your submission id
+submission_id = ''
+get_submission = jotform_api_client.get_submission(submission_id)
+```
+
+## get report
+
+```ruby
+# your report id
+report_id = ''
+get_report = jotform_api_client.get_report(report_id)
+```
+
 ## Requirement
 
 - install ruby (v2.7)
