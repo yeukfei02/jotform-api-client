@@ -166,4 +166,49 @@ class JotFormApiClient < BaseClass
 
     response_body
   end
+
+  def create_form_webhooks(form_id = '', params = {})
+    response = submit_post_request("/form/#{form_id}/webhooks", params)
+
+    response_body = {}
+    response_body = response.body if response.status == 200
+
+    response_body
+  end
+
+  def create_form_submissions(form_id = '', params = {})
+    response = submit_post_request("/form/#{form_id}/submissions", params)
+
+    response_body = {}
+    response_body = response.body if response.status == 200
+
+    response_body
+  end
+
+  def get_submission(submission_id = '')
+    response = submit_get_request("/submission/#{submission_id}")
+
+    response_body = {}
+    response_body = response.body if response.status == 200
+
+    response_body
+  end
+
+  def get_report(report_id = '')
+    response = submit_get_request("/report/#{report_id}")
+
+    response_body = {}
+    response_body = response.body if response.status == 200
+
+    response_body
+  end
+
+  def get_folder(folder_id = '')
+    response = submit_get_request("/folder/#{folder_id}")
+
+    response_body = {}
+    response_body = response.body if response.status == 200
+
+    response_body
+  end
 end
