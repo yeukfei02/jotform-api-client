@@ -129,6 +129,42 @@ params = {}
 get_form_property = jotform_api_client.get_form_submissions(form_id, params)
 ```
 
+## get form files
+
+```ruby
+# your form id
+form_id = ''
+get_form_files = jotform_api_client.get_form_files(form_id)
+```
+
+## get form webhooks
+
+```ruby
+# your form id
+form_id = ''
+get_form_webhooks = jotform_api_client.get_form_webhooks(form_id)
+```
+
+## create form webhooks
+
+```ruby
+# your form id
+form_id = ''
+# your params
+params = {}
+create_form_webhooks = jotform_api_client.create_form_webhooks(form_id, params)
+```
+
+## create form submissions
+
+```ruby
+# your form id
+form_id = ''
+# your params
+params = {}
+create_form_webhooks = jotform_api_client.create_form_submissions(form_id, params)
+```
+
 ## get submission
 
 ```ruby
@@ -143,6 +179,14 @@ get_submission = jotform_api_client.get_submission(submission_id)
 # your report id
 report_id = ''
 get_report = jotform_api_client.get_report(report_id)
+```
+
+## get folder
+
+```ruby
+# your folder id
+folder_id = ''
+get_folder = jotform_api_client.get_folder(folder_id)
 ```
 
 ## Requirement
