@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name = 'jotform_api_client'
-  s.version     = '0.1.7'
+  s.version     = '0.1.8'
   s.summary     = 'jotform_api_client is a ruby client for the JotForm API'
   s.description = 'jotform_api_client is a ruby client for the JotForm API'
   s.authors     = ['Donald Wu']

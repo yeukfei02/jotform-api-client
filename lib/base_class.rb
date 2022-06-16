@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'faraday'
+
 # BaseClass
 class BaseClass
   def initialize(api_key = '')

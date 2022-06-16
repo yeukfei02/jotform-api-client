@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    jotform_api_client (0.1.7)
+    jotform_api_client (0.1.8)
       faraday (~> 2.1)
 
 GEM
@@ -28,6 +28,8 @@ GEM
     kramdown-parser-gfm (1.1.0)
       kramdown (~> 2.0)
     kwalify (0.7.2)
+    nokogiri (1.13.1-arm64-darwin)
+      racc (~> 1.4)
     nokogiri (1.13.1-x86_64-darwin)
       racc (~> 1.4)
     nokogiri (1.13.1-x86_64-linux)
@@ -94,6 +96,7 @@ GEM
       webrick (~> 1.7.0)
 
 PLATFORMS
+  arm64-darwin-21
   x86_64-darwin-20
   x86_64-linux
 
@@ -110,4 +113,4 @@ RUBY VERSION
    ruby 2.7.4p191
 
 BUNDLED WITH
-   2.2.30
+   2.3.16
