@@ -7,6 +7,11 @@ jotform-api-client
 Refer to [Jotform API](https://api.jotform.com/docs/) for request and response
 
 ```ruby
+# install lib
+bundle add jotform-api-client
+```
+
+```ruby
 require 'jotform_api_client'
 
 api_key = <your-jotform-api-key>
